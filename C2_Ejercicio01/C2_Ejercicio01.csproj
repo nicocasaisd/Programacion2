@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\C2_Ejercicio04\C2_Ejercicio04.csproj" />
+    <ProjectReference Include="..\C2_ExplicacionClaseEstatica\C2_ExplicacionClaseEstatica.csproj" />
+  </ItemGroup>
+
+</Project>
