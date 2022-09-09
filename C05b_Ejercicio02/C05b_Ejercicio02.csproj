@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\C05b_Entidades\C05b_Entidades.csproj" />
+  </ItemGroup>
+
 </Project>

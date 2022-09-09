@@ -6,5 +6,11 @@ namespace C05b_Ejercicio02
         {
             InitializeComponent();
         }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            // Instanciamos un Ingresante
+            //Ingresante ingresante = new Ingresante();
+        }
     }
 }
