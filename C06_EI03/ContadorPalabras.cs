@@ -6,5 +6,10 @@ namespace C06_EI03
         {
             InitializeComponent();
         }
+
+        private void btn_Calcular_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -48,15 +48,16 @@
             this.btn_Calcular.TabIndex = 1;
             this.btn_Calcular.Text = "Calcular";
             this.btn_Calcular.UseVisualStyleBackColor = true;
+            this.btn_Calcular.Click += new System.EventHandler(this.btn_Calcular_Click);
             // 
-            // Form1
+            // ContadorPalabras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 287);
             this.Controls.Add(this.btn_Calcular);
             this.Controls.Add(this.rtx_Palabras);
-            this.Name = "Form1";
+            this.Name = "ContadorPalabras";
             this.Text = "Contador de palabras";
             this.ResumeLayout(false);
 
