@@ -43,6 +43,11 @@ namespace Entidades
             return !(n == c);
         }
 
+        public static bool operator +(Negocio n, Cliente c)
+        {
+
+        }
+
 
     }
 }
