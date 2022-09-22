@@ -38,6 +38,7 @@ namespace C07_EI01_Puesto_de_atencion
 
             while(~n1)
             {
+                
                 Console.WriteLine("Clientes pendientes: {0}", n1.ClientesPendientes);
             }
 

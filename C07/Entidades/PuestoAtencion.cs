@@ -42,7 +42,8 @@ namespace Entidades
         {
             if(cli is not null)
             {
-                Thread.Sleep(1000);
+                Console.WriteLine($"Atendiendo al cliente {cli.Numero} : {cli.Nombre}");
+                Thread.Sleep(3000);
                 return true;
             }
             return false;
