@@ -19,11 +19,12 @@ namespace Entidades
         { 
             get { return this.clientes.Dequeue(); } 
             set 
-            { 
-                if(!this.clientes.Contains(value))
-                {
-                    this.clientes.Enqueue(value);
-                }
+            {
+                //if(!this.clientes.Contains(value))
+                //{
+                //    this.clientes.Enqueue(value);
+                //}
+                _ = this + value;
             }
         }
 
@@ -38,10 +39,24 @@ namespace Entidades
             this.caja = new PuestoDeAtencion(PuestoDeAtencion.Puesto.Caja1);
         }
 
+        public Negocio(string nombre) :this()
+        {
+            this.nombre = nombre;
+        }
+
         // METODOS
         public static bool operator ==(Negocio n, Cliente c)
         {
-            return n.clientes.Contains(c);
+            //return n.clientes.Contains(c);
+            // el metodo Contains utiliza el Equals , no funciona
+            foreach(Cliente item in n.clientes)
+            {
+                if(c == item)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static bool operator !=(Negocio n, Cliente c)
@@ -51,36 +66,26 @@ namespace Entidades
 
         public static bool operator +(Negocio n, Cliente c)
         {
-            bool clienteEnCola = false;
-
-            // por cada cliente en la cola actual
-            foreach(Cliente cCola in n.clientes)
-            {
-                // si el cliente que quiero meter está en la cola, cambio el bool
-                if(c == cCola)
-                {
-                    clienteEnCola = true;
-                }
-            }
-
-            if(!clienteEnCola)
+            // si el cliente no esta en la cola
+            if(n != c)
             {
                 n.clientes.Enqueue(c);
+                return true;
             }
-
-            return !clienteEnCola;
+            return false;
         }
 
         public static bool operator ~(Negocio n)
         {
             bool retorno = false;
-
-            Cliente cli = n.Cliente;
-            retorno = n.caja.Atender(cli);
+            if(n.clientes.Count > 0)
+            {
+                Cliente cli = n.Cliente;
+                retorno = n.caja.Atender(cli);
+            }
 
             return retorno;
         }
-
 
     }
 }
