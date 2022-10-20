@@ -17,6 +17,23 @@ namespace Entidades
             this.fechaCreacion = fechaCreacion;
         }
 
+        #region INVALIDACIONES
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+        #endregion
+
         public string Nombre
         {
             get { return nombre; }
@@ -26,6 +43,8 @@ namespace Entidades
         {
             get { return $"{this.nombre} fundado el {this.fechaCreacion.ToShortDateString()}"; }
         }
+
+
 
         public static bool operator==(Equipo a, Equipo b)
         {

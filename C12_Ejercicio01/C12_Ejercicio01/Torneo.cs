@@ -7,8 +7,8 @@ namespace C12_Ejercicio01
 {
     public class Torneo<T> where T : Equipo
     {
-        List<T> equipos = new List<T>();
-        string nombre;
+        List<T> equipos;
+        string nombre = String.Empty;
         Random rand = new Random();
 
         #region INVALIDACIONES
@@ -28,9 +28,31 @@ namespace C12_Ejercicio01
         }
         #endregion
 
+        public Torneo()
+        {
+            equipos = new List<T>();
+        }
+
+        public Torneo(string nombre) : this()
+        {
+            this.nombre = nombre;
+        }
+
         public string JugarPartido
         {
-            get { return CalcularPartido(equipos[rand.Next(0, equipos.Count)], equipos[rand.Next(0, equipos.Count)]); }
+            get 
+            {
+                T equipo1;
+                T equipo2;
+
+                do
+                {
+                    equipo1 = equipos[rand.Next(0, equipos.Count)];
+                    equipo2 = equipos[rand.Next(0, equipos.Count)];
+
+                } while (equipo1 == equipo2);
+                return CalcularPartido(equipo1, equipo2); 
+            }
         }
 
         public static bool operator ==(Torneo<T> torneo, T equipo)
@@ -42,11 +64,6 @@ namespace C12_Ejercicio01
                     return true;
                 }
             }
-            //if(torneo.equipos.Contains(equipo))
-            //{
-            //    return true;
-            //}
-
             return false;
         }
 
@@ -72,7 +89,7 @@ namespace C12_Ejercicio01
             sb.AppendLine($"TORNEO: {this.nombre}");
             foreach(T item in this.equipos)
             {
-                sb.AppendLine($"-Equipo: {item.Nombre}");
+                sb.AppendLine($"-Equipo: {item.Nombre}. {item.Ficha}");
             }
 
             return sb.ToString();
