@@ -4,7 +4,7 @@ namespace Biblioteca
 {
     public class Documento
     {
-        private int numero;
+        protected int numero;
 
         public Documento(int numero)
         {

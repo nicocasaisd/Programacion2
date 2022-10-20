@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public class Contabilidad<T,U>
+    public class Contabilidad<T,U> 
+        where T : Documento
+        where U : Documento, new()
     {
-        List<T> egresos;
-        List<U> ingresos;
+        public List<T> egresos;
+        public List<U> ingresos;
 
         public Contabilidad()
         {
