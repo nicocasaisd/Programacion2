@@ -6,18 +6,12 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
-    public class Moto
+    public class Moto : VehiculoTerrestre
     {
-        public short cantidadRuedas;
-        public short cantidadPuertas;
-        public Colores color;
         public short cilindrada;
 
-        public Moto(short cantidadRuedas, short cantidadPuertas, Colores color, short cilindrada)
+        public Moto(short cantidadRuedas, short cantidadPuertas, Colores color, short cilindrada) : base(cantidadRuedas, cantidadPuertas, color)
         {
-            this.cantidadRuedas = cantidadRuedas;
-            this.cantidadPuertas = cantidadPuertas;
-            this.color = color;
             this.cilindrada = cilindrada;
         }
     }

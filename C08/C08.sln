@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C08_E01", "C08_E01", "{BB58
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaDeClases", "BibliotecaDeClases\BibliotecaDeClases.csproj", "{347D9B91-840B-42A4-9B0A-450ACF3BA00F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C08_E01", "C08_E01\C08_E01.csproj", "{14A29E87-719C-496D-9D37-97F57865F18E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "C08_E02", "C08_E02", "{95ECD4CA-92C8-4ADD-A57C-C2619BF1E92A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +33,17 @@ Global
 		{347D9B91-840B-42A4-9B0A-450ACF3BA00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{347D9B91-840B-42A4-9B0A-450ACF3BA00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{347D9B91-840B-42A4-9B0A-450ACF3BA00F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14A29E87-719C-496D-9D37-97F57865F18E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A29E87-719C-496D-9D37-97F57865F18E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A29E87-719C-496D-9D37-97F57865F18E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A29E87-719C-496D-9D37-97F57865F18E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{347D9B91-840B-42A4-9B0A-450ACF3BA00F} = {BB58D7AA-5A4C-4572-A699-596164B562DC}
+		{14A29E87-719C-496D-9D37-97F57865F18E} = {BB58D7AA-5A4C-4572-A699-596164B562DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97993D2A-B44D-4640-9B26-60F1BDF29BD6}

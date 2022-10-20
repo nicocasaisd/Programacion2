@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C08_C01_Herencia_Deportiva", "C08_C01_Herencia_Deportiva\C08_C01_Herencia_Deportiva.csproj", "{251F630E-4BC3-4B8E-8DFD-875F9AFF9528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioteca", "Biblioteca\Biblioteca.csproj", "{1FC7907E-A349-4EEA-A740-7113E70DC6D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{251F630E-4BC3-4B8E-8DFD-875F9AFF9528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251F630E-4BC3-4B8E-8DFD-875F9AFF9528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251F630E-4BC3-4B8E-8DFD-875F9AFF9528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251F630E-4BC3-4B8E-8DFD-875F9AFF9528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FC7907E-A349-4EEA-A740-7113E70DC6D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FC7907E-A349-4EEA-A740-7113E70DC6D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FC7907E-A349-4EEA-A740-7113E70DC6D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FC7907E-A349-4EEA-A740-7113E70DC6D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBEBC842-58AA-4285-8A00-F46DB80656BD}
+	EndGlobalSection
+EndGlobal
