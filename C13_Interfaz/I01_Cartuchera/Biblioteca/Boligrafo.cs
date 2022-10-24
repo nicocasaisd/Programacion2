@@ -8,7 +8,11 @@ namespace Biblioteca
         private ConsoleColor colorTinta;
         private float tinta;
 
-        public ConsoleColor Color { get ; set; }
+        public ConsoleColor Color 
+        { 
+            get { return this.colorTinta; } 
+            set { this.colorTinta = value; } 
+        }
         
         public float UnidadesDeEscritura 
         { 
@@ -24,10 +28,22 @@ namespace Biblioteca
 
         public EscrituraWrapper Escribir(string texto)
         {
-            UnidadesDeEscritura -= texto.Length * 0.3F;
-            if (UnidadesDeEscritura < 0) { UnidadesDeEscritura = 0; }
+            string textoResultante = "";
+            foreach(char item in texto)
+            {
+                // resto la tinta
+                this.UnidadesDeEscritura -= 1F;
+                // si es menor al limite, break
+                if (this.UnidadesDeEscritura < 0)
+                {
+                    UnidadesDeEscritura = 0;
+                    break;
+                }
+                // lo paso al textoResultante
+                textoResultante += item;
+            }
 
-            return new EscrituraWrapper(this.colorTinta, texto);
+            return new EscrituraWrapper(this.colorTinta, textoResultante);
         }
 
         public bool Recargar(int unidades)
@@ -42,7 +58,7 @@ namespace Biblioteca
 
         public override string ToString()
         {
-            return $"Boligrafo de color {this.colorTinta} con nivel de tinta {this.tinta}";
+            return $"Boligrafo de color {this.Color} con nivel de tinta {this.UnidadesDeEscritura}";
         }
     }
 }

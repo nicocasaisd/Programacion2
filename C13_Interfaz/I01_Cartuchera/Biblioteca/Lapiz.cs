@@ -10,29 +10,50 @@ namespace Biblioteca
     {
         private float tamanioMina;
 
-
-        public ConsoleColor Color 
-        { 
-            get { return ConsoleColor.Gray; } 
-            set => throw new NotImplementedException(); 
+        public Lapiz(int unidades)
+        {
+            this.tamanioMina = unidades;
         }
-        public float UnidadesDeEscritura 
+
+        ConsoleColor IAcciones.Color 
+        { 
+            get { return ConsoleColor.DarkGray; }
+            set { throw new NotImplementedException(); } 
+        }
+        float IAcciones.UnidadesDeEscritura 
         { 
             get { return this.tamanioMina; } 
             set { this.tamanioMina = value; }
         }
 
-        public EscrituraWrapper Escribir(string texto)
+        EscrituraWrapper IAcciones.Escribir(string texto)
         {
-            UnidadesDeEscritura -= texto.Length * 0.1F;
-            if (UnidadesDeEscritura < 0) { UnidadesDeEscritura = 0; }
+            string textoResultante = "";
+            foreach (char item in texto)
+            {
+                // resto la tinta
+                ((IAcciones)this).UnidadesDeEscritura -= 0.5F;
+                // si es menor al limite, break
+                if (((IAcciones)this).UnidadesDeEscritura < 0)
+                {
+                    ((IAcciones)this).UnidadesDeEscritura = 0;
+                    break;
+                }
+                // lo paso al textoResultante
+                textoResultante += item;
+            }
 
-            return new EscrituraWrapper(Color, texto);
+            return new EscrituraWrapper( ((IAcciones)this).Color, textoResultante);
         }
 
-        public bool Recargar(int unidades)
+        bool IAcciones.Recargar(int unidades)
         {
             throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            return $"Lapiz de color {((IAcciones)this).Color} con nivel de mina {((IAcciones)this).UnidadesDeEscritura}";
         }
     }
 }
