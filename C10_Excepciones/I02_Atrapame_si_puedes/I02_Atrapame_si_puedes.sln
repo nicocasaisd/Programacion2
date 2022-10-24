@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consola", "Consola\Consola.csproj", "{E37CE303-AFD6-4BFA-B9ED-AB479C8C7CEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{57752EE5-2579-461F-A884-1C81F5D9A3E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{82697334-772A-4ABE-AD28-054605B75D43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E37CE303-AFD6-4BFA-B9ED-AB479C8C7CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E37CE303-AFD6-4BFA-B9ED-AB479C8C7CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E37CE303-AFD6-4BFA-B9ED-AB479C8C7CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E37CE303-AFD6-4BFA-B9ED-AB479C8C7CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57752EE5-2579-461F-A884-1C81F5D9A3E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57752EE5-2579-461F-A884-1C81F5D9A3E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57752EE5-2579-461F-A884-1C81F5D9A3E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57752EE5-2579-461F-A884-1C81F5D9A3E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82697334-772A-4ABE-AD28-054605B75D43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82697334-772A-4ABE-AD28-054605B75D43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82697334-772A-4ABE-AD28-054605B75D43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82697334-772A-4ABE-AD28-054605B75D43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69D8D059-6474-4FB4-8E3C-29ECB4784365}
+	EndGlobalSection
+EndGlobal
