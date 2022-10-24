@@ -15,6 +15,19 @@ namespace Consola
 
         public MiClase()
         {
+            try
+            {
+                MiClase.MetodoEstatico();
+            }
+            catch (DivideByZeroException ex)
+            {
+
+                throw new UnaExcepcion("En el constructor de MiClase", ex);
+            }
+        }
+
+        public MiClase(Exception ex)
+        {
 
         }
     }

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Consola
 {
-    internal class UnaExcepcion : Exception
+    public class UnaExcepcion : Exception
     {
+        public UnaExcepcion(string message, Exception inner) : base(message, inner)
+        {
+
+        }
     }
 }

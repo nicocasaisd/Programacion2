@@ -6,7 +6,16 @@ namespace Consola
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-        }
+			try
+			{
+				MiClase objeto = new MiClase();
+			}
+			catch (UnaExcepcion ex)
+			{
+				Console.WriteLine(ex);
+				
+			}
+        
+		}
     }
 }
