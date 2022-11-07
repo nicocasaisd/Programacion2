@@ -54,6 +54,7 @@
             this.lst_Personas.Name = "lst_Personas";
             this.lst_Personas.Size = new System.Drawing.Size(206, 154);
             this.lst_Personas.TabIndex = 1;
+            this.lst_Personas.SelectedValueChanged += new System.EventHandler(this.lst_Personas_SelectedValueChanged);
             // 
             // btn_Guardar
             // 
