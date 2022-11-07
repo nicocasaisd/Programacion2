@@ -29,5 +29,15 @@ namespace Vistas
             txt_Nombre.Text = auxiliar.Nombre;
             txt_Apellido.Text = auxiliar.Apellido;
         }
+
+        private void btn_Modificar_Click(object sender, EventArgs e)
+        {
+            int id = ((Persona)lst_Personas.SelectedItem).Id;
+
+            if(PersonaDAO.Modificar(id, txt_Nombre.Text, txt_Apellido.Text) != 0)
+            {
+                MessageBox.Show("Se modifico el registro.");
+            }
+        }
     }
 }

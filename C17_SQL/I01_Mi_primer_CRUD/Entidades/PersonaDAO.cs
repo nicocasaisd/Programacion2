@@ -73,9 +73,39 @@ namespace Entidades
 
         }
 
-        public static void Modificar()
+        public static int Modificar(int id, string nombre, string apellido)
         {
+            int retorno = 0;
 
+            try
+            {
+                conexion.Open();
+                // Ejecucion parametrizada
+                comando.CommandText = "UPDATE Personas SET Nombre = @Nombre , Apellido = @Apellido"+
+                                    " WHERE ID = @Id";
+                comando.Parameters.AddWithValue("@Nombre", nombre);
+                comando.Parameters.AddWithValue("@Apellido", apellido);
+                comando.Parameters.AddWithValue("@Id", id);
+                //Ejecuto
+                retorno = comando.ExecuteNonQuery();
+                // Clear parametros
+                comando.Parameters.Clear();
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("No se pudo conectar a la base de datos");
+            }
+            finally
+            {
+                if(conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return retorno;
         }
 
         public static void Borrar()
