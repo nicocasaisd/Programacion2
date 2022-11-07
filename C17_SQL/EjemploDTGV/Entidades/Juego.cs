@@ -22,8 +22,9 @@ namespace Entidades
 		{
 			this.codigoJuego = codigoJuego;
 		}
+        #region PROPIEDADES
 
-		public double Precio
+        public double Precio
 		{
 			get { return precio; }
 		}
@@ -51,6 +52,7 @@ namespace Entidades
 		{
 			get { return codigoJuego; }
 		}
+        #endregion
 
-	}
+    }
 }
