@@ -38,7 +38,7 @@ namespace Explicacion
 
             // Mostramos los datos
             //Console.WriteLine($"Nombre: {nombre}   Sueldo: {sueldo} Id: {id}");
-
+            /*
             // Lo metemos dentro de un bloque try-catch
             try
             {
@@ -65,15 +65,99 @@ namespace Explicacion
             }
             finally
             {
-                // Cerramos la conexión
-                con.Close();
+                // Preguntamos si la conexion sigue abierta
+                if(con.State == System.Data.ConnectionState.Open)
+                {
+                    // Cerramos la conexión
+                    con.Close();
+                }
             }
-            
-            
+            */
+
+            // ESCRIBIENDO EN LA BASE DE DATOS
+
+            /*
+            SqlConnection con2;
+            SqlCommand command2;
+
+            con2 = new SqlConnection(connectionString);
+            string consulta = "INSERT INTO EMPLEADOS VALUES('Leilani', 'Kinney', 1, 383946.80, 1, '1996-03-21' , null, 'lkinney@gmail.com')";
+            command2 = new SqlCommand(consulta, con2);
+            con2.Open();
 
 
+            int filasAfectadas = command2.ExecuteNonQuery();
+            if (filasAfectadas == 0)
+            {
+                // no se pudo ejecutar
+                Console.WriteLine("No se pudo ejecutar la query.");
+            }
+            else
+            {
+                // se ejecuto
+                Console.WriteLine("Query ejecutada con éxito!");
+            }
+            */
 
-            
+            // UPDATE DE VALORES
+            /*
+            // Declaramos empleado
+            Empleado emp = new Empleado("Marquitos", "Perez", 1, 100, true, "2020-12-12");
+
+            SqlConnection con2;
+            SqlCommand command2;
+
+            con2 = new SqlConnection(connectionString);
+            //// Esto está mal
+            //string consulta = "UPDATE EMPLEADOS " +
+            //    $" SET NOMBRE = '{emp._NOMBRE}'" + 
+            //    " WHERE ID_EMPLEADO=2";
+
+            // El @ indica que esto va a ser un parámetro
+            string consulta = "UPDATE EMPLEADOS SET NOMBRE=@NOMBRE WHERE ID_EMPLEADO=@ID";
+            command2 = new SqlCommand(consulta, con2);
+
+            command2.Parameters.AddWithValue("@NOMBRE", emp._NOMBRE);
+            command2.Parameters.AddWithValue("@ID", 5);
+            con2.Open();
+
+            int filasAfectadas = command2.ExecuteNonQuery();
+            if (filasAfectadas == 0)
+            {
+                // no se pudo ejecutar
+                Console.WriteLine("No se pudo ejecutar la query.");
+            }
+            else
+            {
+                // se ejecuto
+                Console.WriteLine("Query ejecutada con éxito!");
+            }
+            */
+
+            // HACER UN DELETE DELETE
+
+            SqlConnection con2;
+            SqlCommand command2;
+
+            con2 = new SqlConnection(connectionString);
+            string consulta = "DELETE FROM EMPLEADOS WHERE ID_EMPLEADO=@ID";
+            command2 = new SqlCommand(consulta, con2);
+
+
+            command2.Parameters.AddWithValue("@ID", 3);
+            con2.Open();
+
+            int filasAfectadas = command2.ExecuteNonQuery();
+            if (filasAfectadas == 0)
+            {
+                // no se pudo ejecutar
+                Console.WriteLine("No se pudo ejecutar la query.");
+            }
+            else
+            {
+                // se ejecuto
+                Console.WriteLine("Query ejecutada con éxito!");
+            }
         }
     }
 }

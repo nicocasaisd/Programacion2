@@ -8,15 +8,21 @@ namespace Explicacion
 {
     public class Empleado
     {
-        public string nombre;
-        public int id_puesto;
-        public double sueldo;
+        public string _NOMBRE;
+        public string _APELLIDO;
+        public int _ID_PUESTO;
+        public double _SALARIO;
+        public bool _ESTA_ACTIVO;
+        public string _FECHA_ALTA;
 
-        public Empleado(string nombre, int id_puesto, double sueldo)
+        public Empleado(string nOMBRE, string aPELLIDO, int iD_PUESTO, double sALARIO, bool eSTA_ACTIVO, string fECHA_ALTA)
         {
-            this.nombre = nombre;
-            this.id_puesto = id_puesto;
-            this.sueldo = sueldo;
+            _NOMBRE = nOMBRE;
+            _APELLIDO = aPELLIDO;
+            _ID_PUESTO = iD_PUESTO;
+            _SALARIO = sALARIO;
+            _ESTA_ACTIVO = eSTA_ACTIVO;
+            _FECHA_ALTA = fECHA_ALTA;
         }
     }
 }
