@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txt_Nombre = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lst_Personas = new System.Windows.Forms.ListBox();
             this.btn_Guardar = new System.Windows.Forms.Button();
             this.txt_Apellido = new System.Windows.Forms.TextBox();
             this.lbl_Nombre = new System.Windows.Forms.Label();
@@ -46,14 +46,14 @@
             this.txt_Nombre.Size = new System.Drawing.Size(120, 23);
             this.txt_Nombre.TabIndex = 0;
             // 
-            // listBox1
+            // lst_Personas
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(18, 123);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(206, 154);
-            this.listBox1.TabIndex = 1;
+            this.lst_Personas.FormattingEnabled = true;
+            this.lst_Personas.ItemHeight = 15;
+            this.lst_Personas.Location = new System.Drawing.Point(18, 123);
+            this.lst_Personas.Name = "lst_Personas";
+            this.lst_Personas.Size = new System.Drawing.Size(206, 154);
+            this.lst_Personas.TabIndex = 1;
             // 
             // btn_Guardar
             // 
@@ -115,6 +115,7 @@
             this.btn_Leer.TabIndex = 8;
             this.btn_Leer.Text = "Leer";
             this.btn_Leer.UseVisualStyleBackColor = true;
+            this.btn_Leer.Click += new System.EventHandler(this.btn_Leer_Click);
             // 
             // Form1
             // 
@@ -128,7 +129,7 @@
             this.Controls.Add(this.lbl_Nombre);
             this.Controls.Add(this.txt_Apellido);
             this.Controls.Add(this.btn_Guardar);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lst_Personas);
             this.Controls.Add(this.txt_Nombre);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -140,7 +141,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox txt_Nombre;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lst_Personas;
         private System.Windows.Forms.Button btn_Guardar;
         private System.Windows.Forms.TextBox txt_Apellido;
         private System.Windows.Forms.Label lbl_Nombre;

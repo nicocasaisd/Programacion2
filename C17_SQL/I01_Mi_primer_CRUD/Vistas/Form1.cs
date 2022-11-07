@@ -17,5 +17,9 @@ namespace Vistas
             InitializeComponent();
         }
 
+        private void btn_Leer_Click(object sender, EventArgs e)
+        {
+            lst_Personas.DataSource = Entidades.PersonaDAO.Leer();
+        }
     }
 }
