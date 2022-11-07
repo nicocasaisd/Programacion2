@@ -64,6 +64,7 @@
             this.btn_Guardar.TabIndex = 2;
             this.btn_Guardar.Text = "Guardar";
             this.btn_Guardar.UseVisualStyleBackColor = true;
+            this.btn_Guardar.Click += new System.EventHandler(this.btn_Guardar_Click);
             // 
             // txt_Apellido
             // 
@@ -108,6 +109,7 @@
             this.btn_Eliminar.TabIndex = 7;
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // btn_Leer
             // 
@@ -123,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 374);
+            this.ClientSize = new System.Drawing.Size(366, 355);
             this.Controls.Add(this.btn_Leer);
             this.Controls.Add(this.btn_Eliminar);
             this.Controls.Add(this.btn_Modificar);
@@ -133,8 +135,10 @@
             this.Controls.Add(this.btn_Guardar);
             this.Controls.Add(this.lst_Personas);
             this.Controls.Add(this.txt_Nombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Mi primer CRUD";
             this.ResumeLayout(false);
             this.PerformLayout();
 

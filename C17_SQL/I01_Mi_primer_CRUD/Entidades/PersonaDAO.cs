@@ -27,9 +27,33 @@ namespace Entidades
             comando.Connection = conexion;
         }
 
-        public static void Guardar()
+        public static int Guardar(string nombre, string apellido)
         {
+            int filasAfectadas = 0;
 
+            try
+            {
+                conexion.Open();
+                comando.CommandText = "INSERT INTO Personas VALUES(@Nombre, @Apellido)";
+                comando.Parameters.AddWithValue("@Nombre", nombre);
+                comando.Parameters.AddWithValue("@Apellido", apellido);
+                filasAfectadas = comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if(conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return filasAfectadas;
         }
 
         public static List<Persona> Leer()
@@ -108,9 +132,31 @@ namespace Entidades
             return retorno;
         }
 
-        public static void Borrar()
+        public static int Borrar(int id)
         {
+            int filasAfectadas = 0;
 
+            try
+            {
+                conexion.Open();
+                comando.CommandText = "DELETE Personas WHERE ID = @Id";
+                comando.Parameters.AddWithValue("@Id", id);
+                filasAfectadas = comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return filasAfectadas;
         }
 
     }

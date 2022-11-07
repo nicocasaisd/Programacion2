@@ -39,5 +39,28 @@ namespace Vistas
                 MessageBox.Show("Se modifico el registro.");
             }
         }
+
+        private void btn_Guardar_Click(object sender, EventArgs e)
+        {
+            if(String.IsNullOrEmpty(txt_Nombre.Text) || String.IsNullOrEmpty(txt_Apellido.Text))
+            {
+                MessageBox.Show("Los campos de nombre y apellido no pueden estar vacios");
+                return;
+            }
+            if(PersonaDAO.Guardar(txt_Nombre.Text, txt_Apellido.Text) != 0)
+            {
+                MessageBox.Show("Se ha agregado un registro.");
+            }
+        }
+
+        private void btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            int id = ((Persona)lst_Personas.SelectedItem).Id;
+
+            if (PersonaDAO.Borrar(id) != 0)
+            {
+                MessageBox.Show("Se ha eliminado un registro.");
+            }
+        }
     }
 }
