@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 
 namespace Vista
 {
@@ -19,17 +20,28 @@ namespace Vista
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            RefrescarBiblioteca();
+            try
+            {
+                RefrescarBiblioteca();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void RefrescarBiblioteca()
         {
+            dtgvBiblioteca.DataSource = JuegoDAO.Leer();
+            dtgvBiblioteca.Update();
+            dtgvBiblioteca.Refresh();
         }
 
 
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            this.Close();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
