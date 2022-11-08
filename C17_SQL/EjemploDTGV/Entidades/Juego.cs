@@ -10,6 +10,10 @@ namespace Entidades
 		private string nombre;
 		private double precio;
 
+		public Juego()
+		{
+		}
+
 		public Juego(string nombre, double precio, string genero, int codigoUsuario)
 		{
 			this.nombre = nombre;

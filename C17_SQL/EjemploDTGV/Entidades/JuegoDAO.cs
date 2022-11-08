@@ -47,7 +47,30 @@ namespace Entidades
 
         public static void Guardar(Juego juego)
         {
+            try
+            {
+                conexion.Open();
+                comando.CommandText = "INSERT INTO JUEGOS VALUES(@codigo_usuario, @nombre, @precio, @genero)";
+                comando.Parameters.AddWithValue("@codigo_usuario", juego.CodigoUsuario.ToString());
+                comando.Parameters.AddWithValue("@nombre", juego.Nombre);
+                comando.Parameters.AddWithValue("@precio", juego.Precio.ToString());
+                comando.Parameters.AddWithValue("@genero", juego.Genero);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
         }
 
         public static List<Biblioteca> Leer()
@@ -91,12 +114,68 @@ namespace Entidades
 
         public static Juego LeerPorId(int codigoJuego)
         {
-            
+            SqlDataReader lector;
+            Juego auxJuego = new Juego();
+
+            try
+            {
+                conexion.Open();
+                comando.CommandText = "SELECT * FROM JUEGOS\r\nWHERE CODIGO_JUEGO = 1";
+                lector = comando.ExecuteReader();
+
+                while (lector.Read())
+                {
+                    int codigo_juego = (int)lector["CODIGO_JUEGO"];
+                    int codigo_usuario = (int)lector["CODIGO_USUARIO"];
+                    string nombre = lector["NOMBRE"].ToString();
+                    double precio = (double)lector["PRECIO"];
+                    string genero = lector["GENERO"].ToString();
+
+                    auxJuego = new Juego(nombre, precio, genero, codigo_juego, codigo_usuario);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return auxJuego;
         }
 
         public static void Modificar(Juego juego)
         {
+            try
+            {
+                conexion.Open();
+                comando.CommandText = "UPDATE JUEGOS\r\nSET PRECIO = @precio, NOMBRE = @nombre, GENERO = @genero\r\nWHERE CODIGO_JUEGO=@codigo_juego\r\n";
+                comando.Parameters.AddWithValue("@precio", juego.Precio);
+                comando.Parameters.AddWithValue("@nombre", juego.Nombre);
+                comando.Parameters.AddWithValue("@genero", juego.Genero);
+                comando.ExecuteNonQuery();
+                comando.Parameters.Clear();
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
         }
 
     }
