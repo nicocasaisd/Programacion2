@@ -51,12 +51,25 @@ namespace Vista
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
+            try
+            {
+                FrmAlta alta = new FrmAlta();
+                if(alta.ShowDialog() == DialogResult.OK)
+                {
+                    RefrescarBiblioteca();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
 
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            Biblioteca biblioteca = (Biblioteca)dtgvBiblioteca.CurrentRow.DataBoundItem;
         }
 
     }

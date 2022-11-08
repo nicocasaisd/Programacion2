@@ -17,6 +17,7 @@ namespace Vista
         {
             btnGuardar.Text = "Modificar";
             nupPrecio.Maximum = 10000;
+            this.codigoJuego = codigoJuego;
             PintarForm();
         }
 

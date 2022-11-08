@@ -44,8 +44,11 @@ namespace Vista
             this.dtgvBiblioteca.BackgroundColor = System.Drawing.SystemColors.InactiveCaption;
             this.dtgvBiblioteca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvBiblioteca.Location = new System.Drawing.Point(12, 75);
+            this.dtgvBiblioteca.MultiSelect = false;
             this.dtgvBiblioteca.Name = "dtgvBiblioteca";
+            this.dtgvBiblioteca.ReadOnly = true;
             this.dtgvBiblioteca.RowHeadersWidth = 80;
+            this.dtgvBiblioteca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgvBiblioteca.Size = new System.Drawing.Size(585, 158);
             this.dtgvBiblioteca.TabIndex = 0;
             // 
