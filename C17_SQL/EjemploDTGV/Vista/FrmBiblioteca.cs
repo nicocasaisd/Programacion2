@@ -46,7 +46,16 @@ namespace Vista
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            Biblioteca biblioteca = (Biblioteca)dtgvBiblioteca.CurrentRow.DataBoundItem;
+            try
+            {
+                JuegoDAO.Eliminar(biblioteca.CodigoJuego);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            RefrescarBiblioteca();
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
@@ -70,7 +79,20 @@ namespace Vista
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Biblioteca biblioteca = (Biblioteca)dtgvBiblioteca.CurrentRow.DataBoundItem;
-        }
+            try
+            {
+                FrmAlta modificar = new FrmAlta(biblioteca.CodigoJuego);
+                if (modificar.ShowDialog() == DialogResult.OK)
+                {
+                    RefrescarBiblioteca();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }   
+
 
     }
 }

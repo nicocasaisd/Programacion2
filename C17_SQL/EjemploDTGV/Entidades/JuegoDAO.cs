@@ -120,7 +120,7 @@ namespace Entidades
             try
             {
                 conexion.Open();
-                comando.CommandText = "SELECT * FROM JUEGOS\r\nWHERE CODIGO_JUEGO = 1";
+                comando.CommandText = $"SELECT * FROM JUEGOS\r\nWHERE CODIGO_JUEGO = {codigoJuego}";
                 lector = comando.ExecuteReader();
 
                 while (lector.Read())
@@ -160,6 +160,7 @@ namespace Entidades
                 comando.Parameters.AddWithValue("@precio", juego.Precio);
                 comando.Parameters.AddWithValue("@nombre", juego.Nombre);
                 comando.Parameters.AddWithValue("@genero", juego.Genero);
+                comando.Parameters.AddWithValue("@codigo_juego", juego.CodigoJuego);
                 comando.ExecuteNonQuery();
                 comando.Parameters.Clear();
 
