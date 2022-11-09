@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class FrmMostrar
+    partial class FrmTestDelegados
     {
         /// <summary>
         /// Required designer variable.
@@ -28,27 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblNombre
+            // txtNombre
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNombre.Location = new System.Drawing.Point(12, 26);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(201, 59);
-            this.lblNombre.TabIndex = 0;
-            this.lblNombre.Text = "NOMBRE";
+            this.txtNombre.Location = new System.Drawing.Point(12, 33);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(183, 23);
+            this.txtNombre.TabIndex = 0;
             // 
-            // FrmMostrar
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(12, 73);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(183, 40);
+            this.btnActualizar.TabIndex = 1;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            // 
+            // FrmTestDelegados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 215);
-            this.Controls.Add(this.lblNombre);
-            this.Name = "FrmMostrar";
-            this.Text = "FrmMostrar";
+            this.ClientSize = new System.Drawing.Size(209, 150);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.txtNombre);
+            this.Name = "FrmTestDelegados";
+            this.Text = "Test Delegados";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -56,6 +64,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

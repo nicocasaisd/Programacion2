@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class FrmMostrar : Form
+    public partial class FrmTestDelegados : Form
     {
-        public FrmMostrar()
+        public FrmTestDelegados()
         {
             InitializeComponent();
-        }
-
-        public void ActualizarNombre(string nombre)
-        {
-            this.lblNombre.Text = nombre;
         }
     }
 }
