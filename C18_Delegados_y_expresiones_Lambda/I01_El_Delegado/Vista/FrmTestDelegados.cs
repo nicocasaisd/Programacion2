@@ -12,9 +12,21 @@ namespace Vista
 {
     public partial class FrmTestDelegados : Form
     {
-        public FrmTestDelegados()
+        Action<string> delegado;
+
+        public FrmTestDelegados(Action<string> delegado)
         {
             InitializeComponent();
+            this.delegado = delegado;
+        }
+
+        private void FrmTestDelegados_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            delegado.Invoke(txtNombre.Text);
         }
     }
 }

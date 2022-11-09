@@ -30,9 +30,9 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.testDelegadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,23 +56,26 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(40, 20);
             this.toolStripMenuItem1.Text = "Alta";
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(60, 20);
-            this.toolStripMenuItem2.Text = "Mostrar";
-            // 
             // testDelegadoToolStripMenuItem
             // 
             this.testDelegadoToolStripMenuItem.Name = "testDelegadoToolStripMenuItem";
-            this.testDelegadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testDelegadoToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.testDelegadoToolStripMenuItem.Text = "Test Delegado";
+            this.testDelegadoToolStripMenuItem.Click += new System.EventHandler(this.testDelegadoToolStripMenuItem_Click);
             // 
             // alumnoToolStripMenuItem
             // 
             this.alumnoToolStripMenuItem.Name = "alumnoToolStripMenuItem";
-            this.alumnoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alumnoToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.alumnoToolStripMenuItem.Text = "Alumno";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Enabled = false;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(60, 20);
+            this.toolStripMenuItem2.Text = "Mostrar";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // Form1
             // 
@@ -85,6 +88,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
