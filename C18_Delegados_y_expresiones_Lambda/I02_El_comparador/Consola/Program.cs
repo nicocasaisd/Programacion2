@@ -86,7 +86,8 @@ namespace Consola
             return cantidadCaracteres;
         }
 
-        public static void Comparar(string texto1, string texto2, Func<string,string,int> delegado)
+        public static void Comparar(string texto1, string texto2, 
+            Func<string,string,int> delegado)
         {
             int resultado = delegado.Invoke(texto1, texto2);
 
