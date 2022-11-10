@@ -15,7 +15,8 @@ namespace Consola
             string primerTexto = "Vive como si fueras a morir mañana; aprende como si el mundo fuera a durar para siempre.";
             // Cant. caracteres: 88, Cant. palabras: 17 , Cant. vocales: 34, Cant. signos puntuación: 2 
             string segundoTexto = "La vida es como montar en bicicleta; para mantener el equilibrio debes seguir moviéndote.";
-            // Cant. caracteres: 89, Cant. palabras: 13, Cant. vocales: 35, Cant. signos puntuación: 2
+            //string segundoTexto = "La vida es como montar en bicicleta; para mantener el equilibrio debes seguir moviéndno..";
+            // Cant. caracteres: 89, Cant. palabras: 14, Cant. vocales: 35, Cant. signos puntuación: 2
 
             /*/
             Console.WriteLine("Ingrese el primer texto:");
@@ -25,17 +26,27 @@ namespace Consola
             string segundoTexto = Console.ReadLine();
             //*/
 
+
             Console.WriteLine($"{NewLine}1era Comparación - Texto con más caracteres:");
             // Punto 2
+            Console.WriteLine($"Texto1: {primerTexto.Length}, Texto2: {segundoTexto.Length}");
+            Comparar(primerTexto, segundoTexto, (s1, s2) => { return s1.Length - s2.Length; });
 
             Console.WriteLine($"{NewLine}2da Comparación - Texto con más palabras:");
             // Punto 3
-            
+            Console.WriteLine($"Texto1: {primerTexto.Split(' ').Length}, Texto2: {segundoTexto.Split(' ').Length}");
+            Comparar(primerTexto, segundoTexto, (s1, s2) => { return s1.Split(' ').Length - s2.Split(' ').Length; });
+
             Console.WriteLine($"{NewLine}3era Comparación - Texto con más vocales:");
             // Punto 4
+            Console.WriteLine($"Texto1: {ContarVocales(primerTexto)}, Texto2: {ContarVocales(segundoTexto)}");
+            Comparar(primerTexto, segundoTexto, (s1, s2) => { return ContarVocales(primerTexto) - ContarVocales(segundoTexto); });
 
             Console.WriteLine($"{NewLine}4ta Comparación - Texto con más signos de puntuación:");
             // Punto 5
+            Console.WriteLine($"Texto1: {ContarSignosPuntuacion(primerTexto)}, Texto2: {ContarSignosPuntuacion(segundoTexto)}");
+            Comparar(primerTexto, segundoTexto, (s1, s2) => { return ContarSignosPuntuacion(primerTexto) - ContarSignosPuntuacion(segundoTexto); });
+
         }
 
         public static int ContarVocales(string texto)
@@ -73,6 +84,24 @@ namespace Consola
             }
 
             return cantidadCaracteres;
+        }
+
+        public static void Comparar(string texto1, string texto2, Func<string,string,int> delegado)
+        {
+            int resultado = delegado.Invoke(texto1, texto2);
+
+            if (resultado > 0)
+            {
+                Console.WriteLine("El primer texto es MAYOR al segundo");
+            }
+            else if(resultado < 0)
+            {
+                Console.WriteLine("El primer texto es MENOR al segundo");
+            }
+            else
+            {
+                Console.WriteLine("Los textos son IGUALES");
+            }
         }
     }
 }
