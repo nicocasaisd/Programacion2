@@ -40,12 +40,12 @@ namespace Consola
             Console.WriteLine($"{NewLine}3era Comparación - Texto con más vocales:");
             // Punto 4
             Console.WriteLine($"Texto1: {ContarVocales(primerTexto)}, Texto2: {ContarVocales(segundoTexto)}");
-            Comparar(primerTexto, segundoTexto, (s1, s2) => { return ContarVocales(primerTexto) - ContarVocales(segundoTexto); });
+            Comparar(primerTexto, segundoTexto, (s1, s2) => { return ContarVocales(s1) - ContarVocales(s2); });
 
             Console.WriteLine($"{NewLine}4ta Comparación - Texto con más signos de puntuación:");
             // Punto 5
             Console.WriteLine($"Texto1: {ContarSignosPuntuacion(primerTexto)}, Texto2: {ContarSignosPuntuacion(segundoTexto)}");
-            Comparar(primerTexto, segundoTexto, (s1, s2) => { return ContarSignosPuntuacion(primerTexto) - ContarSignosPuntuacion(segundoTexto); });
+            Comparar(primerTexto, segundoTexto, (s1, s2) => { return ContarSignosPuntuacion(s1) - ContarSignosPuntuacion(s2); });
 
         }
 
