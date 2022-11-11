@@ -13,8 +13,13 @@ namespace Vista
 {
     public partial class Form1 : Form
     {
+        CancellationTokenSource tokenSource;
+        CancellationToken token;
+
         public Form1()
         {
+            tokenSource = new CancellationTokenSource();
+            token = new CancellationToken();
             InitializeComponent();
         }
 
@@ -30,9 +35,9 @@ namespace Vista
             //AsignarHora();
 
             //Punto 3
-            //Task t1 = Task.Run(AsignarHoraConInvoker);
+            Task t1 = Task.Run(AsignarHoraConInvoker, this.token);
 
-            Task t2 = Task.Run(AsignarHoraSinInvoker);
+            //Task t2 = Task.Run(AsignarHoraSinInvoker);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -43,7 +48,7 @@ namespace Vista
         //Punto 3:
         public void AsignarHoraConInvoker()
         {
-            while (true)
+            while (!tokenSource.IsCancellationRequested)
             {
                 Thread.Sleep(1000);
                 if (this.lblHora.InvokeRequired)
@@ -68,7 +73,8 @@ namespace Vista
                 Thread.Sleep(1000);
                 if (this.lblHora.InvokeRequired)
                 {
-                    this.lblHora.BeginInvoke(() => {this.lblHora.Text = DateTime.UtcNow.ToString(); });
+                    Action ac = new Action(() => { this.lblHora.Text = DateTime.UtcNow.ToString(); });
+                    this.lblHora.BeginInvoke( ac);
                 }
                 else
                 {
@@ -87,6 +93,9 @@ namespace Vista
             }
         }
 
-
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            tokenSource.Cancel();
+        }
     }
 }
