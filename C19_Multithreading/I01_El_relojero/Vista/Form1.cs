@@ -61,6 +61,23 @@ namespace Vista
             }
         }
 
+        public void AsignarHoraConInvokerResumido()
+        {
+            while (true)
+            {
+                Thread.Sleep(1000);
+                if (this.lblHora.InvokeRequired)
+                {
+                    this.lblHora.BeginInvoke(() => {this.lblHora.Text = DateTime.UtcNow.ToString(); });
+                }
+                else
+                {
+                    this.lblHora.Text = DateTime.UtcNow.ToString();
+                }
+
+            }
+        }
+
         public void AsignarHoraSinInvoker()
         {
             while (true)
