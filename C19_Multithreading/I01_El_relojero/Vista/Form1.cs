@@ -27,19 +27,49 @@ namespace Vista
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //this.Show();
-            AsignarHora();
-            //while (true)
-            //{
-            //    AsignarHora();
+            //AsignarHora();
 
-            //}
-            //MessageBox.Show("Terminado");
+            //Punto 3
+            //Task t1 = Task.Run(AsignarHoraConInvoker);
+
+            Task t2 = Task.Run(AsignarHoraSinInvoker);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            AsignarHora();
+            //AsignarHora();
         }
+
+        //Punto 3:
+        public void AsignarHoraConInvoker()
+        {
+            while (true)
+            {
+                Thread.Sleep(1000);
+                if (this.lblHora.InvokeRequired)
+                {
+                    this.lblHora.BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        this.lblHora.Text = DateTime.UtcNow.ToString();
+                    });
+                }
+                else
+                {
+                    this.lblHora.Text = DateTime.UtcNow.ToString();
+                }
+
+            }
+        }
+
+        public void AsignarHoraSinInvoker()
+        {
+            while (true)
+            {
+                Thread.Sleep(1000);
+                this.lblHora.Text = DateTime.UtcNow.ToString();
+            }
+        }
+
+
     }
 }
