@@ -37,6 +37,7 @@ namespace Vista
             //Punto 3
             Task t1 = Task.Run(AsignarHoraConInvoker, this.token);
 
+
             //Task t2 = Task.Run(AsignarHoraSinInvoker);
         }
 
