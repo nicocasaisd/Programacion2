@@ -10,6 +10,14 @@ namespace Biblioteca
         CancellationTokenSource cancellationTokenSource;
         Task hilo;
         int intervalo;
+        bool estaActivo = false;
+        int segundos;
+
+        // Declaro el delegado
+        public delegate void DelegadoTemporizador();
+
+        // Declaro el evento
+        public event DelegadoTemporizador TiempoCumplido;
 
         public int Intervalo
         {
@@ -18,7 +26,14 @@ namespace Biblioteca
 
         public bool EstaActivo
         {
-            get { return cancellationToken.IsCancellationRequested; }
+            get { return estaActivo; }
+            set { estaActivo = value; }
+        }
+
+        public int Segundos
+        {
+            get => segundos;
+            set { segundos = value; }
         }
 
         public Temporizador(int intervalo)
@@ -26,26 +41,37 @@ namespace Biblioteca
             this.intervalo = intervalo;
         }
 
-        public void CorrerTiempo()
+        private void CorrerTiempo()
         {
-
+            while(!cancellationToken.IsCancellationRequested)
+            {
+                Thread.Sleep(this.Intervalo);
+                TiempoCumplido.Invoke();
+            }
         }
 
         public void DetenerTemporizador()
         {
-
+            if(this.EstaActivo == true)
+            {
+                cancellationTokenSource.Cancel();
+                this.EstaActivo = false;
+            }
         }
 
         public void IniciarTemporizador()
         {
+            if(this.EstaActivo == false)
+            {
+                this.cancellationTokenSource = new CancellationTokenSource();
+                this.cancellationToken = this.cancellationTokenSource.Token;
+                hilo = Task.Run(CorrerTiempo, this.cancellationToken);
 
+                this.EstaActivo = true;
+            }
         }
 
-        // Declaro el delegado
-        public delegate void DelegadoTemporizador();
-
-        // Declaro el evento
-
+        
 
 
     }
