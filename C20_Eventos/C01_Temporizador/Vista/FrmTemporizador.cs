@@ -29,8 +29,10 @@ namespace Vista
 
         public void IncrementarSegundos()
         {
-            reloj.Segundos++;
-            lblReloj.Text = reloj.Segundos.ToString();
+            //DateTime tiempo = reloj.DateTime;
+            _ = reloj.DateTime.AddSeconds(1);
+            //tiempo.AddSeconds(1);
+            lblReloj.Text = reloj.DateTime.ToString();
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace Biblioteca
         Task hilo;
         int intervalo;
         bool estaActivo = false;
-        int segundos;
+        DateTime datetime;
 
         // Declaro el delegado
         public delegate void DelegadoTemporizador();
@@ -30,10 +30,9 @@ namespace Biblioteca
             set { estaActivo = value; }
         }
 
-        public int Segundos
+        public DateTime DateTime
         {
-            get => segundos;
-            set { segundos = value; }
+            get => datetime;
         }
 
         public Temporizador(int intervalo)
@@ -63,6 +62,9 @@ namespace Biblioteca
         {
             if(this.EstaActivo == false)
             {
+                // inicializo el atributo datetime
+                this.datetime = DateTime.UtcNow;
+
                 this.cancellationTokenSource = new CancellationTokenSource();
                 this.cancellationToken = this.cancellationTokenSource.Token;
                 hilo = Task.Run(CorrerTiempo, this.cancellationToken);
