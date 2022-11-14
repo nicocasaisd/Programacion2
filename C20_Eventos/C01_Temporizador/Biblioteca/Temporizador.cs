@@ -10,8 +10,7 @@ namespace Biblioteca
         CancellationTokenSource cancellationTokenSource;
         Task hilo;
         int intervalo;
-        bool estaActivo = false;
-        DateTime datetime;
+        //bool estaActivo = false;
 
         // Declaro el delegado
         public delegate void DelegadoTemporizador();
@@ -24,15 +23,15 @@ namespace Biblioteca
             get { return intervalo; }
         }
 
+        //public bool EstaActivo
+        //{
+        //    get { return estaActivo; }
+        //    set { estaActivo = value; }
+        //}
+
         public bool EstaActivo
         {
-            get { return estaActivo; }
-            set { estaActivo = value; }
-        }
-
-        public DateTime DateTime
-        {
-            get => datetime;
+            get { return hilo is not null && hilo.Status == TaskStatus.Running; }
         }
 
         public Temporizador(int intervalo)
@@ -42,10 +41,11 @@ namespace Biblioteca
 
         private void CorrerTiempo()
         {
-            while(!cancellationToken.IsCancellationRequested)
+            while(TiempoCumplido is not null && !cancellationToken.IsCancellationRequested)
             {
                 Thread.Sleep(this.Intervalo);
                 TiempoCumplido.Invoke();
+                
             }
         }
 
@@ -54,7 +54,7 @@ namespace Biblioteca
             if(this.EstaActivo == true)
             {
                 cancellationTokenSource.Cancel();
-                this.EstaActivo = false;
+                //this.EstaActivo = false;
             }
         }
 
@@ -62,14 +62,11 @@ namespace Biblioteca
         {
             if(this.EstaActivo == false)
             {
-                // inicializo el atributo datetime
-                this.datetime = DateTime.UtcNow;
-
                 this.cancellationTokenSource = new CancellationTokenSource();
                 this.cancellationToken = this.cancellationTokenSource.Token;
                 hilo = Task.Run(CorrerTiempo, this.cancellationToken);
 
-                this.EstaActivo = true;
+                //this.EstaActivo = true;
             }
         }
 

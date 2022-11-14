@@ -24,15 +24,36 @@ namespace Vista
         {
             this.reloj = new Temporizador(1000);
             // Suscribo un metodo al evento TiempoCumplido de Temporizador
-            this.reloj.TiempoCumplido += IncrementarSegundos;
+            this.reloj.TiempoCumplido += AsignarHora;
+            //this.reloj.TiempoCumplido += AsignarHora_InvokeRequired;
         }
 
-        public void IncrementarSegundos()
+        //public void IncrementarSegundos()
+        //{
+        //    //DateTime tiempo = reloj.DateTime;
+        //    _ = reloj.DateTime.AddSeconds(1);
+        //    //tiempo.AddSeconds(1);
+        //    lblReloj.Text = reloj.DateTime.ToString();
+        //}
+
+        public void AsignarHora()
         {
-            //DateTime tiempo = reloj.DateTime;
-            _ = reloj.DateTime.AddSeconds(1);
-            //tiempo.AddSeconds(1);
-            lblReloj.Text = reloj.DateTime.ToString();
+            lblReloj.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+        // InvokeRequired
+
+        public void AsignarHora_InvokeRequired()
+        {
+            if(lblReloj.InvokeRequired)
+            {
+                Action asignarHora = AsignarHora_InvokeRequired;
+                lblReloj.Invoke(asignarHora);
+            }
+            else
+            {
+                lblReloj.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+            }
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
