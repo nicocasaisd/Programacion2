@@ -12,10 +12,34 @@ namespace Vista
 {
     public partial class FrmAvisador : Form
     {
+        Persona persona;
+
         public FrmAvisador()
         {
             InitializeComponent();
         }
 
+        private void btn_Crear_Click(object sender, EventArgs e)
+        {
+            if(persona == null)
+            {
+                persona = new Persona(txt_Nombre.Text, txt_Apellido.Text);
+                // Suscribo el metodo al evento de persona
+                persona.EventoString += NotificarCambio;
+                this.btn_Crear.Text = "Actualizar";
+            }
+            else
+            {
+                persona.Nombre = txt_Nombre.Text;
+                persona.Apellido = txt_Apellido.Text;
+            }
+
+            
+        }
+
+        public void NotificarCambio(string cambio)
+        {
+            MessageBox.Show(cambio);
+        }
     }
 }
