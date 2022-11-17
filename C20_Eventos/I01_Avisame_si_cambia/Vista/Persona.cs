@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Vista
 {
+    // Declaro el delegado
+    public delegate void DelegadoString(string msg);
+
     public class Persona
     {
-		// Declaro el delegado
-		public delegate void DelegadoString(string msg);
+		
 		// Declaro el evento
 		public event DelegadoString EventoString;
 
@@ -17,10 +19,8 @@ namespace Vista
 		private string nombre;
         private string apellido;
 
-		public Persona(string nombre, string apellido)
+		public Persona()
 		{
-			this.nombre = nombre;
-			this.apellido = apellido;
 		}
 
         public string Nombre
@@ -29,7 +29,10 @@ namespace Vista
 			set 
 			{ 
 				nombre = value;
-				EventoString.Invoke("Se ha cambiado el nombre");
+				if(EventoString is not null)
+				{
+					EventoString.Invoke("Se ha cambiado el nombre");
+				}
 			}
 		}
 
@@ -39,7 +42,10 @@ namespace Vista
 			set
 			{ 
 				apellido = value;
-                EventoString.Invoke("Se ha cambiado el apellido");
+                if (EventoString is not null)
+                {
+                    EventoString.Invoke("Se ha cambiado el apellido");
+                }
             }
 		}
 

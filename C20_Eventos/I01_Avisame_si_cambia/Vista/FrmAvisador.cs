@@ -23,21 +23,18 @@ namespace Vista
         {
             if(persona == null)
             {
-                persona = new Persona(txt_Nombre.Text, txt_Apellido.Text);
+                persona = new Persona();
                 // Suscribo el metodo al evento de persona
                 persona.EventoString += NotificarCambio;
                 this.btn_Crear.Text = "Actualizar";
             }
-            else
-            {
-                persona.Nombre = txt_Nombre.Text;
-                persona.Apellido = txt_Apellido.Text;
-            }
 
-            
+            persona.Nombre = txt_Nombre.Text;
+            persona.Apellido = txt_Apellido.Text;
+            lbl_NombreCompleto.Text = persona.Mostrar();
         }
 
-        public void NotificarCambio(string cambio)
+        public static void NotificarCambio(string cambio)
         {
             MessageBox.Show(cambio);
         }
