@@ -28,7 +28,6 @@ namespace Vista
                 persona.EventoString += NotificarCambio;
                 this.btn_Crear.Text = "Actualizar";
             }
-
             persona.Nombre = txt_Nombre.Text;
             persona.Apellido = txt_Apellido.Text;
             lbl_NombreCompleto.Text = persona.Mostrar();
